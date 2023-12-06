@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ConductivityGenerator (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "ConductivityGenerator (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

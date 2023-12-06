@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="ConductivityGenerator.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ConductivityGenerator"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <TabView AllowDrop="False" IsAddTabButtonVisible="False">
+        <TabViewItem x:Name="MainTab" Header="Main" IsClosable="False" CanDrag="False" AllowDrop="False">
+            
+        </TabViewItem>
+        <TabViewItem x:Name="ConfigTab" Header="Config" IsClosable="False" CanDrag="False" AllowDrop="False">
+            <StackPanel Orientation="Vertical" Margin="10,10,10,10">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="RuleMin1" Header="Minimum Value"  Text="10" Margin="5,5,5,5"/>
+                    <TextBox x:Name="RuleMax1" Header="Maximum Value"  Text="11" Margin="5,5,5,5"/>
+                    <SplitButton x:Name="myColorButton1">
+                        <Border Width="32" Height="32" Background="{x:Bind TextColorShow1}" CornerRadius="4,0,0,4"/>
+                        <SplitButton.Flyout>
+                            <Flyout Placement="Bottom">
+                                <ColorPicker x:Name="ColorPicker1"
+                                ColorSpectrumShape="Ring"
+                                IsMoreButtonVisible="False"
+                                IsColorSliderVisible="True"
+                                IsColorChannelTextInputVisible="False"
+                                IsHexInputVisible="False"
+                                IsAlphaEnabled="False"
+                                IsAlphaSliderVisible="True"
+                                Color="{x:Bind TextColorPicker1}"
+                                IsAlphaTextInputVisible="True"
+                                ColorChanged="ChangeColor1"/>
+                            </Flyout>
+                        </SplitButton.Flyout>
+                    </SplitButton>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="RuleMin2" Header="Minimum Value"  Text="10" Margin="5,5,5,5"/>
+                    <TextBox x:Name="RuleMax2" Header="Maximum Value"  Text="11" Margin="5,5,5,5"/>
+                    <SplitButton x:Name="myColorButton2">
+                        <Border Width="32" Height="32" Background="{x:Bind TextColorShow2}" CornerRadius="4,0,0,4"/>
+                        <SplitButton.Flyout>
+                            <Flyout Placement="Bottom">
+                                <ColorPicker x:Name="ColorPicker2"
+                ColorSpectrumShape="Ring"
+                IsMoreButtonVisible="False"
+                IsColorSliderVisible="True"
+                IsColorChannelTextInputVisible="False"
+                IsHexInputVisible="False"
+                IsAlphaEnabled="False"
+                IsAlphaSliderVisible="True"
+                Color="{x:Bind TextColorPicker2}"
+                IsAlphaTextInputVisible="True"
+                ColorChanged="ChangeColor2"/>
+                            </Flyout>
+                        </SplitButton.Flyout>
+                    </SplitButton>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="RuleMin3" Header="Minimum Value"  Text="10" Margin="5,5,5,5"/>
+                    <TextBox x:Name="RuleMax3" Header="Maximum Value"  Text="11" Margin="5,5,5,5"/>
+                    <SplitButton x:Name="myColorButton3">
+                        <Border Width="32" Height="32" Background="{x:Bind TextColorShow3}" CornerRadius="4,0,0,4"/>
+                        <SplitButton.Flyout>
+                            <Flyout Placement="Bottom">
+                                <ColorPicker x:Name="ColorPicker3"
+                ColorSpectrumShape="Ring"
+                IsMoreButtonVisible="False"
+                IsColorSliderVisible="True"
+                IsColorChannelTextInputVisible="False"
+                IsHexInputVisible="False"
+                IsAlphaEnabled="False"
+                IsAlphaSliderVisible="True"
+                Color="{x:Bind TextColorPicker3}"
+                IsAlphaTextInputVisible="True"
+                ColorChanged="ChangeColor3"/>
+                            </Flyout>
+                        </SplitButton.Flyout>
+                    </SplitButton>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="RuleMin4" Header="Minimum Value"  Text="10" Margin="5,5,5,5"/>
+                    <TextBox x:Name="RuleMax4" Header="Maximum Value"  Text="11" Margin="5,5,5,5"/>
+                    <SplitButton x:Name="myColorButton4">
+                        <Border Width="32" Height="32" Background="{x:Bind TextColorShow4}" CornerRadius="4,0,0,4"/>
+                        <SplitButton.Flyout>
+                            <Flyout Placement="Bottom">
+                                <ColorPicker x:Name="ColorPicker4"
+                ColorSpectrumShape="Ring"
+                IsMoreButtonVisible="False"
+                IsColorSliderVisible="True"
+                IsColorChannelTextInputVisible="False"
+                IsHexInputVisible="False"
+                IsAlphaEnabled="False"
+                IsAlphaSliderVisible="True"
+                Color="{x:Bind TextColorPicker4}"
+                IsAlphaTextInputVisible="True"
+                ColorChanged="ChangeColor4"/>
+                            </Flyout>
+                        </SplitButton.Flyout>
+                    </SplitButton>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="RuleMi5" Header="Minimum Value"  Text="10" Margin="5,5,5,5"/>
+                    <TextBox x:Name="RuleMax5" Header="Maximum Value"  Text="11" Margin="5,5,5,5"/>
+                    <SplitButton x:Name="myColorButton5">
+                        <Border Width="32" Height="32" Background="{x:Bind TextColorShow5}" CornerRadius="4,0,0,4"/>
+                        <SplitButton.Flyout>
+                            <Flyout Placement="Bottom">
+                                <ColorPicker x:Name="ColorPicker5"
+                ColorSpectrumShape="Ring"
+                IsMoreButtonVisible="False"
+                IsColorSliderVisible="True"
+                IsColorChannelTextInputVisible="False"
+                IsHexInputVisible="False"
+                IsAlphaEnabled="False"
+                IsAlphaSliderVisible="True"
+                Color="{x:Bind TextColorPicker5}"
+                IsAlphaTextInputVisible="True"
+                ColorChanged="ChangeColor5"/>
+                            </Flyout>
+                        </SplitButton.Flyout>
+                    </SplitButton>
+                </StackPanel>
+            </StackPanel>
+        </TabViewItem>
+        <TabViewItem x:Name="ExcelTab" Header="Excel Rules" IsClosable="False" CanDrag="False" AllowDrop="False">
+            
+        </TabViewItem>
+
+
+    </TabView>
+</Window>
