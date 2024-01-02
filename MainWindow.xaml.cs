@@ -215,6 +215,8 @@ namespace ConductivityGenerator
                 pBar.Value = 100;
                 addConsoleLine("Trying to open file");
                 await Task.Delay(10);
+                process.WaitForExit();
+
                 openPopup(title:"Done!",content:"sample file created! Fill the file and use it in the next step");
             }
             else

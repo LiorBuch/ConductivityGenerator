@@ -52,9 +52,9 @@ namespace ConductivityReportAlgo
             this.r3 =r3;
             this.r4 =r4;
             this.r5 =r5;
-            this.allow4 = allow1;
-            this.allow4 = allow2;
-            this.allow4 = allow3;
+            this.allow1 = allow1;
+            this.allow2 = allow2;
+            this.allow3 = allow3;
             this.allow4 = allow4;
             this.allow5 = allow5;
         }
@@ -398,19 +398,19 @@ namespace ConductivityReportAlgo
                             outSheet.Cells[20 + i, 1 + j].Style.Fill.BackgroundColor.SetColor(colorConvert(Color4));
                             continue;
                         }
-                        if (floatValue <= r3)
+                        if (floatValue <= r3 && this.allow3)
                         {
                             outSheet.Cells[20 + i, 1 + j].Style.Fill.PatternType = ExcelFillStyle.Solid;
                             outSheet.Cells[20 + i, 1 + j].Style.Fill.BackgroundColor.SetColor(colorConvert(Color3));
                             continue;
                         }
-                        if (floatValue <= r2)
+                        if (floatValue <= r2 && this.allow2)
                         {
                             outSheet.Cells[20 + i, 1 + j].Style.Fill.PatternType = ExcelFillStyle.Solid;
                             outSheet.Cells[20 + i, 1 + j].Style.Fill.BackgroundColor.SetColor(colorConvert(Color2));
                             continue;
                         }
-                        if (floatValue <= r1)
+                        if (floatValue <= r1 && this.allow1)
                         {
                             outSheet.Cells[20 + i, 1 + j].Style.Fill.PatternType = ExcelFillStyle.Solid;
                             outSheet.Cells[20 + i, 1 + j].Style.Fill.BackgroundColor.SetColor(colorConvert(Color1));
@@ -424,7 +424,7 @@ namespace ConductivityReportAlgo
             this.outSheet.Cells[19, 2, 19, botCol].Merge = true;
             savePack();
         }
-        private System.Drawing.Color colorConvert(SolidColorBrush brush) 
+        private Color colorConvert(SolidColorBrush brush) 
         {
             var color = brush.Color;
             return System.Drawing.Color.FromArgb(color.R, color.G, color.B);
