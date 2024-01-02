@@ -5,9 +5,11 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Documents;
 using Microsoft.UI.Xaml.Media;
+using OfficeOpenXml;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Reflection.Metadata;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
@@ -144,13 +146,13 @@ namespace ConductivityGenerator
                 addConsoleLine("User Chosse Folder: " + folder.Path);
                 await Task.Delay(500);
                 addConsoleLine("Generating sample file");
-                string fileName = Algo.semiPackage(folder.Path);
+                var fileName = Algo.semiPackage(folder.Path);
                 var path = System.IO.Path.Combine(folder.Path, fileName);
+                var package = new ExcelPackage(path);
                 addConsoleLine("File Created!");
                 var filer = new Windows.Storage.Pickers.FileOpenPicker();
                 WinRT.Interop.InitializeWithWindow.Initialize(filer, hWnd);
                 filer.SuggestedStartLocation = PickerLocationId.Desktop;
-                filer.FileTypeFilter.Add(".xlsx");
                 filer.FileTypeFilter.Add(".csv");
                 addConsoleLine("Optinal, add Top file");
 
@@ -169,9 +171,8 @@ namespace ConductivityGenerator
                     var topFile = await filer.PickSingleFileAsync();
                     if (topFile != null)
                     {
-                        Algo.addTopFile(folder.Path, topFile.Path);
+                        Algo.addTopFile(topFile.Path,package);
                         addConsoleLine($"{topFile.Path} Found adding to file");
-
                     }
                     else
                     {
@@ -187,14 +188,14 @@ namespace ConductivityGenerator
                     PrimaryButtonText = "Select"
                 };
                 //set the XamlRoot property
-                popupTopDialog.XamlRoot = MainTab.XamlRoot;
-                ContentDialogResult resultBot = await popupTopDialog.ShowAsync();
+                popupBottomDialog.XamlRoot = MainTab.XamlRoot;
+                ContentDialogResult resultBot = await popupBottomDialog.ShowAsync();
                 if( resultBot == ContentDialogResult.Primary)
                 {
                     var botFile = await filer.PickSingleFileAsync();
                     if (botFile != null)
                     {
-                        Algo.addBottomFile(folder.Path, botFile.Path);
+                        Algo.addBottomFile(package, botFile.Path);
                         addConsoleLine($"{botFile.Path} Found adding to file");
                     }
                     else

@@ -552,27 +552,25 @@ namespace ConductivityReportAlgo
             }
         }
 
-        public static void addTopFile(string pathFile,string fileCSV)
+        public static void addTopFile(string fileCSV, ExcelPackage pack)
         {
-            var pack = new ExcelPackage(new FileInfo(pathFile));
             var sheet = pack.Workbook.Worksheets.First();
-
             string[] lines = File.ReadAllLines(fileCSV);
             string[] parts = lines[1].Split(',');
             sheet.Cells["K4"].Value = parts[0];
             sheet.Cells["K5"].Value = parts[1];
             sheet.Cells["K6"].Value = parts[2];
+            pack.Save();
         }
-        public static void addBottomFile(string pathFile, string fileCSV)
+        public static void addBottomFile(ExcelPackage pack, string fileCSV)
         {
-            var pack = new ExcelPackage(new FileInfo(pathFile));
             var sheet = pack.Workbook.Worksheets.First();
-
             string[] lines = File.ReadAllLines(fileCSV);
             string[] parts = lines[1].Split(',');
             sheet.Cells["K7"].Value = parts[0];
             sheet.Cells["K8"].Value = parts[1];
             sheet.Cells["K9"].Value = parts[2];
+            pack.Save();
         }
 
         public static string semiPackage(string path)
